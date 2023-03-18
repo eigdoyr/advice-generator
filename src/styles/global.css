@@ -1,0 +1,11 @@
+:root {
+  --primary: hsl(193, 38%, 86%);
+  --secondary: hsl(217, 19%, 38%);
+  --accent: hsl(150, 100%, 66%);
+  --card-bg: hsl(216, 12%, 8%);
+  --main-bg: hsl(136, 100%, 76%);
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
