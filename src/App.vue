@@ -35,6 +35,7 @@ onMounted(showAdvice);
 
 <style scoped>
 main {
+  display: -ms-grid;
   display: grid;
   place-content: center;
   min-height: 100vh;
@@ -43,9 +44,18 @@ main {
 
 .card {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   text-align: center;
   background-color: var(--card-bg);
@@ -54,6 +64,7 @@ main {
   height: 20rem;
   border-radius: 0.8rem;
   max-width: 33.8125rem;
+  -webkit-box-shadow: rgba(14, 13, 13, 0.733) 5.95px 5.95px 10px;
   box-shadow: rgba(14, 13, 13, 0.733) 5.95px 5.95px 10px;
 }
 
@@ -62,12 +73,14 @@ main {
   text-transform: uppercase;
   font-size: 0.65rem;
   letter-spacing: 0.2rem;
+  -webkit-animation: fadeIn 3s;
   animation: fadeIn 3s;
 }
 
 .advice-text {
   color: var(--primary);
   font-size: 1.5rem;
+  -webkit-animation: fadeIn 3s;
   animation: fadeIn 3s;
   background: -webkit-linear-gradient(360deg, #00ffa0 0%, #ffffff 100%);
   -webkit-background-clip: text;
@@ -77,6 +90,8 @@ main {
 .card-divider {
   content: url("../src/assets/pattern-divider-mobile.svg");
   margin-bottom: 4vh;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
 
@@ -86,22 +101,44 @@ button {
 .dice {
   position: absolute;
   bottom: -2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   background-color: var(--accent);
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
+  -webkit-animation: rollIn 0.8s;
   animation: rollIn 0.8s;
+  -webkit-box-shadow: rgba(14, 13, 13, 0.733) 5.95px 5.95px 10px;
   box-shadow: rgba(14, 13, 13, 0.733) 5.95px 5.95px 10px;
 }
 
 .dice:hover {
+  -webkit-box-shadow: 0 3px 40px var(--accent);
   box-shadow: 0 3px 40px var(--accent);
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
   cursor: pointer;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
   transform: scale(1.05);
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
@@ -113,13 +150,28 @@ button {
   }
 }
 
-@keyframes rollIn {
+@-webkit-keyframes rollIn {
   0% {
     opacity: 0;
+    -webkit-transform: translateX(-10%) rotate(-120deg);
     transform: translateX(-10%) rotate(-120deg);
   }
   100% {
     opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+@keyframes rollIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10%) rotate(-120deg);
+    transform: translateX(-10%) rotate(-120deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
     transform: translateX(0px) rotate(0deg);
   }
 }
